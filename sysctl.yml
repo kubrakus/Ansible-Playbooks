@@ -1,0 +1,9 @@
+ 
+  tasks: 
+    - name: update sysctl param
+      sysctl:
+        name: "{{ item.name }}"
+        value: "{{ item.value }}"
+        state: present
+        reload: yes
+ 
