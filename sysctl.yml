@@ -6,4 +6,5 @@
         value: "{{ item.value }}"
         state: present
         reload: yes
- 
+       with_items:
+        - "{{ hosts }}"
