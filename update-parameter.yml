@@ -10,6 +10,5 @@
           value: test
           state: present
           reload: yes
-          state: enabled
         when: 
             - ansible_facts.services['jenkins.service'].state == 'running'
