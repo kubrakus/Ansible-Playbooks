@@ -6,8 +6,8 @@
 
       - name: update sysctl param
         sysctl:
-          name: test
-          value: test
+          name: fs.file-max
+          value: 9223372036854775807
           state: present
           reload: yes
         when: 
