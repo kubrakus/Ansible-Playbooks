@@ -13,7 +13,7 @@
       value: 9223372036854775807
       state: present
       reload: yes
-    when: ("{%service_name%}.service" in services) and (ansible_facts.services.{%service_name%}.state == 'running')
+    when: (""{{service_name}}".service" in services) and (ansible_facts.services."{{service_name}}".state == 'running')
     tags: "{{ service_name }}"
 
 
