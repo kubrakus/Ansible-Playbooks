@@ -2,11 +2,16 @@
 - hosts: all
   gather_facts: yes
   tasks:
+  
+  - name: Gathering service facts
+    service_facts:
+    register: services_state
+    
   - name: update sysctl parameters
     sysctl:
       name: fs.file-max
       value: 9223372036854775807
       state: present
       reload: yes
-    when: ansible_facts.services['jenkins.service'].state == 'running'
+    when: services_state.ansible_facts.services["jenkins.service"].state == 'running'
  
