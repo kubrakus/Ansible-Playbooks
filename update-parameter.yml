@@ -5,6 +5,7 @@
   
   - name: Gathering service facts
     service_facts:
+    tags : jenkins
  #   register: services_state
     
   - name: update sysctl parameters
@@ -15,5 +16,8 @@
       reload: yes
   #  when: services_state.ansible_facts.services["jenkins.service"].state == 'running'
   #  when: ansible_facts['services']['jenkins.service']['state'] == 'running'
-    when: ansible_facts['os_family'] == 'Ubuntu'
+  #  when: ansible_facts['os_family'] == 'Ubuntu'  
+    when: ("jenkins.service" in services)
+    tags: jenkins
+    - debug: var=services_state.ansible_facts.services["jenkins.service"].state
  
