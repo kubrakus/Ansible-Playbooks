@@ -19,5 +19,3 @@
   #  when: ansible_facts['os_family'] == 'Ubuntu'  
     when: ("jenkins.service" in services)
     tags: jenkins
-    - debug: var=services_state.ansible_facts.services["jenkins.service"].state
- 
