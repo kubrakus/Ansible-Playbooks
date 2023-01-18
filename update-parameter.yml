@@ -5,7 +5,7 @@
   
   - name: Gathering service facts
     service_facts:
-    tags : "{{ service_name }}"
+  #  tags : "{{ service_name }}"
     
   - name: update sysctl parameters
     sysctl:
@@ -14,7 +14,7 @@
       state: present
       reload: yes
     when: ("{{ service_name }}.service" in services) and (ansible_facts.services.{{ service_name }}.state == 'running')
-    tags: "{{ service_name }}"
+  #  tags: "{{ service_name }}"
 
 
   #  when: services_state.ansible_facts.services["jenkins.service"].state == 'running'
