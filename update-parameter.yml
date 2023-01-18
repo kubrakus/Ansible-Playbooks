@@ -17,5 +17,5 @@
   #  when: services_state.ansible_facts.services["jenkins.service"].state == 'running'
   #  when: ansible_facts['services']['jenkins.service']['state'] == 'running'
   #  when: ansible_facts['os_family'] == 'Ubuntu'  
-    when: ("jenkins.service" in services) and (service_facts["jenkins.service"].state == 'running')
+    when: ("jenkins.service" in services) and (ansible_facts.services.jenkins.state == 'running')
     tags: jenkins
