@@ -8,5 +8,5 @@
       value: 9223372036854775807
       state: present
       reload: yes
-    when: (ansible_facts.services['jenkins.service'].state == 'running')
+    when: ansible_facts.services['jenkins.service'].state == 'running'
  
