@@ -5,7 +5,7 @@
   
   - name: Gathering service facts
     service_facts:
-    register: services_state
+ #   register: services_state
     
   - name: update sysctl parameters
     sysctl:
@@ -13,5 +13,6 @@
       value: 9223372036854775807
       state: present
       reload: yes
-    when: services_state.ansible_facts.services["jenkins.service"].state == 'running'
+  #  when: services_state.ansible_facts.services["jenkins.service"].state == 'running'
+    when: ansible_facts['services']['jenkins.service']['state'] == 'running'
  
